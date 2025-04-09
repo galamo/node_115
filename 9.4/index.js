@@ -3,3 +3,7 @@ function sayHi() {
 }
 
 sayHi()
+
+setTimeout(() => {
+    console.log("process finished..")
+}, 1000 * 60);
