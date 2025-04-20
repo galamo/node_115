@@ -20,6 +20,12 @@ const car: {
 } = { type: "Skoda", color: "white", lp: "12345", year: "2023", is4On4: true };
 
 const jobLocation: { city: string; address: string } = {
-  city: "Givatayim",
+  city: "Ashdod",
   address: "HomaVeMigdal",
+};
+
+const getUsers = async (): Promise<string> => {
+  const data = await fetch("blablbla");
+  const d = await data.json();
+  return d as string;
 };
