@@ -29,3 +29,8 @@ const getUsers = async (): Promise<string> => {
   const d = await data.json();
   return d as string;
 };
+
+console.log(getUsers);
+async function init() {
+  const result = await getUsers();
+}

@@ -20,3 +20,7 @@ const getUsers = async () => {
     const d = await data.json();
     return d;
 };
+console.log(getUsers);
+async function init() {
+    const result = await getUsers();
+}
