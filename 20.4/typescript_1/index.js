@@ -1,4 +1,5 @@
 console.log("This is ts file?");
+console.log("This is ts file?");
 var param = "Galamo"; // dont do this
 var email = "galamouyal88@gmail.com";
 var age = 36;
@@ -9,3 +10,7 @@ var address = {
 };
 var jobs = ["software developer", "team lead", "lecutrer"];
 var car = { type: "Skoda", color: "white", lp: "12345", year: "2023", is4On4: true };
+var jobLocation = {
+    city: "Givatayim",
+    address: "HomaVeMigdal",
+};

@@ -1,4 +1,5 @@
 console.log("This is ts file?");
+console.log("This is ts file?");
 const param: any = "Galamo"; // dont do this
 
 const email: string = "galamouyal88@gmail.com";
@@ -17,3 +18,8 @@ const car: {
   year: string;
   is4On4: boolean;
 } = { type: "Skoda", color: "white", lp: "12345", year: "2023", is4On4: true };
+
+const jobLocation: { city: string; address: string } = {
+  city: "Givatayim",
+  address: "HomaVeMigdal",
+};
