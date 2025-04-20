@@ -9,3 +9,11 @@ const address: { city: string; street: string; building: number } = {
   building: 2,
 };
 const jobs: string[] = ["software developer", "team lead", "lecutrer"];
+
+const car: {
+  type: string;
+  color: string;
+  lp: string;
+  year: string;
+  is4On4: boolean;
+} = { type: "Skoda", color: "white", lp: "12345", year: "2023", is4On4: true };
