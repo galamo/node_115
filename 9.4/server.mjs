@@ -2,6 +2,7 @@
 import { createServer } from "node:http";
 
 const server = createServer((req, res) => {
+  //   for (let index = 0; index < 99999999999; index++) {}
   res.writeHead(200, { "Content-Type": "text/plain" });
   res.end(
     "Hello Class Nodejs!" +
