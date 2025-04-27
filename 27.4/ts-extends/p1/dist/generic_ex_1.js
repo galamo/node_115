@@ -18,12 +18,30 @@ const users = [
     },
     { type: "user", name: "Kate Müller", age: 23, occupation: "Astronaut" },
 ];
+// type AdminsApiResponse =
+//     | {
+//         status: "success";
+//         data: Admin[];
+//     }
+//     | {
+//         status: "error";
+//         error: string;
+//     };
 function requestAdmins(callback) {
     callback({
         status: "success",
         data: admins,
     });
 }
+// type UsersApiResponse =
+//     | {
+//         status: "success";
+//         data: User[];
+//     }
+//     | {
+//         status: "error";
+//         error: string;
+//     };
 function requestUsers(callback) {
     callback({
         status: "success",

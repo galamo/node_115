@@ -23,7 +23,10 @@ exports.persons = [
         name: "Bruce Willis",
         age: 64,
         role: "World saver",
-    },
+    }, {
+        name: "Tomer Willis",
+        course: "react"
+    }
 ];
 function logPerson(user) {
     console.log(` - ${user.name}, ${user.age}`);

@@ -13,9 +13,11 @@ interface Admin {
     role: string;
 }
 
-export type Person = unknown; // THIS IS WRONG!!!
+interface Student { name: string, course: string }
 
-export const persons: User[] = [
+export type Person = User | Admin | Student
+
+export const persons: Person[] = [
     {
         name: "Max Mustermann",
         age: 25,
@@ -35,7 +37,10 @@ export const persons: User[] = [
         name: "Bruce Willis",
         age: 64,
         role: "World saver",
-    },
+    }, {
+        name: "Tomer Willis",
+        course: "react"
+    }
 ];
 
 export function logPerson(user: User) {
