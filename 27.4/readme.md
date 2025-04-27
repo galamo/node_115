@@ -1,6 +1,6 @@
 # ex typescript
 
-1. Types
+## Types
    Exercise: Define a Product type that has the following properties:
 
 id (number)
@@ -27,7 +27,7 @@ function printProduct(product: Product): void {
 }
 ```
 
-2. Interfaces
+## Interfaces
    Exercise: Create an interface called User with:
 
 username (string)
@@ -50,7 +50,7 @@ const user: User = {
 };
 ```
 
-3. Generics
+## Generics
    Exercise: Create a generic function wrapInArray that takes any value and returns it as an array of that value.
 
 Example:
@@ -64,7 +64,7 @@ wrapInArray("hello"); // returns ["hello"]
 const result = wrapInArray("test"); // result should be ["test"]
 ```
 
-4. Union
+## Union
    Exercise: Create a type Status that can only be "success", "error", or "loading".
    Then write a function handleStatus(status: Status) that logs different messages depending on the value.
 
@@ -82,7 +82,7 @@ function handleStatus(status: Status): void {
 }
 ```
 
-5. Intersection
+## Intersection
    Exercise: Create two types:
 
 HasId with id: number
