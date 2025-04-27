@@ -13,9 +13,9 @@ interface Admin {
     role: string;
 }
 
-export type Person = User | Admin; // THIS IS WRONG!!!
+export type Person = unknown; // THIS IS WRONG!!!
 
-export const persons: Person[] = [
+export const persons: User[] = [
     {
         name: "Max Mustermann",
         age: 25,
