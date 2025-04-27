@@ -48,3 +48,4 @@ export function logPerson(user: User) {
 }
 
 persons.forEach(logPerson);
+
