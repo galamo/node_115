@@ -9,6 +9,7 @@ interface User {
     occupation: string;
 }
 
+const klimi: User = { type: "user", name: "aaa", age: 1, occupation: "Sss" }
 
 
 interface Admin {
@@ -77,4 +78,17 @@ export function requestUsers(callback: (response: ApiResponse<User>) => void) {
         status: "success",
         data: users,
     });
+}
+
+
+function itsAUserOrAdmin(u: User | Admin) {
+    if (u.type === "admin") {
+        console.log(u.role)
+    } else {
+        console.log(u)
+    }
+}
+
+function isAdmin(p: Admin | User): p is Admin {
+    return p.type === "admin"
 }
