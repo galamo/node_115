@@ -83,7 +83,7 @@ function handleStatus(status: Status): void {
 ```
 
 ## Intersection
-   Exercise: Create two types:
+Exercise: Create two types:
 
 HasId with id: number
 
