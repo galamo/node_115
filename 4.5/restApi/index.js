@@ -1,7 +1,10 @@
 const express = require('express')
 const bodyParser = require("body-parser")
+const cors = require("cors")
 const app = express()
 const port = 3000
+
+app.use(cors())
 app.use(bodyParser.json({ extended: true }))
 
 
@@ -40,6 +43,22 @@ app.put('/customer/:id', (req, res) => { //path param + body
 app.post('/customer', (req, res) => { //only body
     console.log(req.body)
     res.send(`REST-create new customer, ${JSON.stringify(req.body)}`)
+})
+
+app.get('/add/:num1/:num2', (req, res) => {
+    res.send(`the result is: ${parseInt(req.params.num1) + parseInt(req.params.num2)}`)
+})
+
+app.get('/sub/:num1/:num2', (req, res) => {
+    res.send(`the result is: ${parseInt(req.params.num1) - parseInt(req.params.num2)}`)
+})
+
+app.get('/div/:num1/:num2', (req, res) => {
+    res.send(`the result is: ${parseInt(req.params.num1) / parseInt(req.params.num2)}`)
+})
+
+app.get('/mul/:num1/:num2', (req, res) => {
+    res.send(`the result is: ${parseInt(req.params.num1) * parseInt(req.params.num2)}`)
 })
 
 
