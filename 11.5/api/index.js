@@ -35,9 +35,6 @@ app.get("/api/authenticate", (req, res, next) => {
 const users = []
 const tokens = {}
 
-
-
-
 // TODO: change get to post
 app.post("/auth/register", (req, res, next) => {
     const userName = req.body.userName
@@ -69,15 +66,22 @@ app.post("/auth/login", (req, res, next) => {
         return res.status(400).send("Missing Username or Password")
     }
 })
-app.get("/users", (req, res, next) => {
+
+app.use((req, res, next) => {
     if (tokens.hasOwnProperty(req.headers.authorization)) {
-        return res.json(users)
+        return next()
     } else {
         return res.status(401).json({ message: "who are you?" })
     }
-
-
 })
+app.get("/api/users", (req, res, next) => {
+    return res.json(users)
+})
+app.get("/api/tokens", (req, res, next) => {
+    return res.json(tokens)
+})
+
+
 app.listen(config.port, (e) => {
     if (e) {
         console.log(e)

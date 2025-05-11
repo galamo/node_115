@@ -65,6 +65,19 @@ function init() {
 
     })
 
+    document.getElementById("getTokensAction")?.addEventListener("click", async () => {
+        try {
+            const result = await getTokensApi()
+            const element = document.querySelector("#getTokensResponse")
+            if (element) {
+                element.innerHTML = JSON.stringify(result)
+            }
+        } catch (ex: any) {
+            alert("error")
+        }
+
+    })
+
 }
 
 async function registerApi(payload: { userName: string, password: string }): Promise<string> {
@@ -92,7 +105,7 @@ async function loginApi(payload: { userName: string, password: string }): Promis
     return content;
 }
 async function getUsersApi() {
-    const usersResponse = await fetch('http://localhost:3000/users', {
+    const usersResponse = await fetch('http://localhost:3000/api/users', {
         method: 'GET',
         headers: new Headers({
             'Authorization': localStorage.getItem("token") as string || "",
@@ -100,6 +113,18 @@ async function getUsersApi() {
         }),
     });
     const content = await usersResponse.json();
+    return content
+}
+
+async function getTokensApi() {
+    const tokensResponse = await fetch('http://localhost:3000/api/tokens', {
+        method: 'GET',
+        headers: new Headers({
+            'Authorization': localStorage.getItem("token") as string || "",
+            'Content-Type': 'application/json'
+        }),
+    });
+    const content = await tokensResponse.json();
     return content
 }
 

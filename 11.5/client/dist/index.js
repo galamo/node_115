@@ -15,7 +15,7 @@ const DOM = {
     loginResponse: null
 };
 function init() {
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
     DOM.userName = document.querySelector("#userName");
     DOM.password = document.querySelector("#password");
     DOM.registerResponse = document.querySelector("#registerResponse");
@@ -67,6 +67,18 @@ function init() {
             alert("error");
         }
     }));
+    (_d = document.getElementById("getTokensAction")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => __awaiter(this, void 0, void 0, function* () {
+        try {
+            const result = yield getTokensApi();
+            const element = document.querySelector("#getTokensResponse");
+            if (element) {
+                element.innerHTML = JSON.stringify(result);
+            }
+        }
+        catch (ex) {
+            alert("error");
+        }
+    }));
 }
 function registerApi(payload) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -98,7 +110,7 @@ function loginApi(payload) {
 }
 function getUsersApi() {
     return __awaiter(this, void 0, void 0, function* () {
-        const usersResponse = yield fetch('http://localhost:3000/users', {
+        const usersResponse = yield fetch('http://localhost:3000/api/users', {
             method: 'GET',
             headers: new Headers({
                 'Authorization': localStorage.getItem("token") || "",
@@ -106,6 +118,19 @@ function getUsersApi() {
             }),
         });
         const content = yield usersResponse.json();
+        return content;
+    });
+}
+function getTokensApi() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const tokensResponse = yield fetch('http://localhost:3000/api/tokens', {
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': localStorage.getItem("token") || "",
+                'Content-Type': 'application/json'
+            }),
+        });
+        const content = yield tokensResponse.json();
         return content;
     });
 }
