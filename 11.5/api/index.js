@@ -55,7 +55,7 @@ app.post("/auth/login", (req, res, next) => {
         const foundUser = users.find(u => u.userName === userName.toLowerCase() && u.password === password.toLowerCase())
         if (foundUser) {
             const token = `kalimi-token-${new Date().getTime()}`
-            tokens[token] = {}
+            tokens[token] = {expiration:new Date().getTime() + 30000}
             console.log(tokens)
             return res.json({ message: "Logged in Successfully", token })
         } else {
@@ -67,9 +67,16 @@ app.post("/auth/login", (req, res, next) => {
     }
 })
 
+
 app.use((req, res, next) => {
     if (tokens.hasOwnProperty(req.headers.authorization)) {
-        return next()
+        const tokenExpiration = tokens[req.headers.authorization]
+        if (tokenExpiration.expiration> new Date().getTime()){
+          return next()  
+        } else {
+            return res.status(401).json({message: "Token expired"})
+        }
+        
     } else {
         return res.status(401).json({ message: "who are you?" })
     }
